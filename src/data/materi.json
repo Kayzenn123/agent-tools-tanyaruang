@@ -1,0 +1,160 @@
+[
+  {
+    "contohSoal": {
+      "jawab": "Ubah persen ke pecahan: 40% = 40/100 = 2/5. Kemudian 2/5 × 250 = 100. Jadi, ada 100 siswa yang suka matematika.",
+      "soal": "Di sebuah kelas ada 250 siswa. Sebanyak 40% di antaranya menyukai matematika. Berapa siswa yang menyukai matematika?"
+    },
+    "id": "materi-matematika",
+    "judul": "Pecahan & Persen",
+    "langkah": [
+      {
+        "contoh": "1/2 artinya satu bagian dari dua bagian yang sama besar; 3/4 artinya tiga bagian dari empat bagian yang sama besar.",
+        "isi": "Pecahan terdiri atas pembilang (angka di atas) dan penyebut (angka di bawah). Pembilang menunjukkan berapa bagian yang diambil, penyebut menunjukkan menjadi berapa bagian sama besar suatu keseluruhan dibagi.",
+        "judul": "Kenali bagian pecahan"
+      },
+      {
+        "contoh": "1/2 = 50/100 = 50%, sedangkan 1/4 = 25/100 = 25%.",
+        "isi": "Pecahan dapat diubah menjadi persen dengan membuat penyebutnya menjadi 100, lalu angka pembilangnya adalah persennya.",
+        "judul": "Ubah pecahan menjadi persen"
+      },
+      {
+        "contoh": "75% = 75/100 = 3/4 setelah disederhanakan dengan membagi pembilang dan penyebut dengan 25.",
+        "isi": "Persen diubah menjadi pecahan dengan menuliskan angka persen di atas 100, lalu menyederhanakan pecahan tersebut.",
+        "judul": "Ubah persen menjadi pecahan"
+      },
+      {
+        "contoh": "1/2 + 1/4 = 2/4 + 1/4 = 3/4. Penyebut disamakan dulu menjadi 4.",
+        "isi": "Untuk menjumlah atau mengurang pecahan, samakan dulu penyebutnya dengan mencari KPK penyebut, lalu jumlahkan atau kurangkan pembilangnya.",
+        "judul": "Jumlah dan kurang pecahan"
+      },
+      {
+        "contoh": "20% dari 300 = 20/100 × 300 = 60.",
+        "isi": "Untuk mencari persen dari suatu bilangan, kalikan persen tersebut (sebagai pecahan per seratus) dengan bilangan itu.",
+        "judul": "Hitung persen dari suatu bilangan"
+      },
+      {
+        "contoh": "Harga Rp50.000 diskon 10% menjadi Rp50.000 − Rp5.000 = Rp45.000.",
+        "isi": "Diskon, pajak, dan untung-rugi di kehidupan sehari-hari semuanya dihitung dengan persen, jadi kuasai langkah-langkah di atas agar cepat menghitung saat belanja.",
+        "judul": "Terapkan dalam kehidupan sehari-hari"
+      }
+    ],
+    "mapel": "Matematika",
+    "ringkasan": "Pecahan dan persen adalah dua cara menyatakan bagian dari suatu keseluruhan. Pecahan memakai pembilang dan penyebut, sedangkan persen menyatakan bagian dari seratus. Keduanya bisa saling diubah dan dipakai untuk menghitung diskon, nilai ujian, hingga bagian kue yang dibagi rata."
+  },
+  {
+    "contohSoal": {
+      "jawab": "Percepatan a = F ÷ m = 12 ÷ 3 = 4 m/s². Menurut Hukum II Newton, gaya 12 N pada massa 3 kg menghasilkan percepatan 4 m/s².",
+      "soal": "Sebuah kotak bermassa 3 kg didorong dengan gaya 12 N pada permukaan licin. Berapa percepatan kotak tersebut?"
+    },
+    "id": "materi-ipa",
+    "judul": "Gaya & Gerak (Hukum Newton)",
+    "langkah": [
+      {
+        "contoh": "Menendang bola, menarik pintu, dan gaya gravitasi yang menarik apel jatuh ke tanah.",
+        "isi": "Gaya adalah dorongan atau tarikan yang dapat mengubah gerak atau bentuk benda. Satuan gaya adalah Newton (N).",
+        "judul": "Apa itu gaya?"
+      },
+      {
+        "contoh": "Mobil yang direm mendadak membuat penumpang terdorong ke depan karena tubuhnya ingin tetap bergerak.",
+        "isi": "Hukum I Newton (hukum kelembaman) menyatakan bahwa benda cenderung mempertahankan keadaan geraknya: benda diam tetap diam, benda bergerak tetap bergerak lurus beraturan, selama tidak ada gaya luar yang bekerja.",
+        "judul": "Hukum I Newton: kelembaman"
+      },
+      {
+        "contoh": "Mendorong gerobak kosong lebih mudah daripada gerobak penuh berisi pasir, karena massanya lebih besar.",
+        "isi": "Hukum II Newton menyatakan percepatan benda berbanding lurus dengan gaya dan berbanding terbalik dengan massa: F = m × a.",
+        "judul": "Hukum II Newton: F = m × a"
+      },
+      {
+        "contoh": "Saat berenang, tangan mendorong air ke belakang dan air mendorong tubuh ke depan.",
+        "isi": "Hukum III Newton menyatakan bahwa setiap aksi menimbulkan reaksi yang sama besar dan berlawanan arah.",
+        "judul": "Hukum III Newton: aksi-reaksi"
+      },
+      {
+        "contoh": "Sepeda yang direm akan berhenti karena gaya gesek antara ban dan jalan melawan arah gerak.",
+        "isi": "Gaya gesek adalah gaya yang melawan arah gerak benda dan muncul saat dua permukaan bersentuhan. Gaya gesek membuat benda yang bergerak akhirnya berhenti.",
+        "judul": "Gaya gesek"
+      },
+      {
+        "contoh": "Mobil melaju 20 m/s yang direm hingga berhenti dalam 4 detik mengalami perlambatan sebesar 5 m/s².",
+        "isi": "Gerak dapat diukur dengan kecepatan (jarak per waktu) dan percepatan (perubahan kecepatan per waktu). Gabungkan ketiga hukum Newton untuk menjelaskan hampir semua gerak di sekitar kita.",
+        "judul": "Kecepatan dan percepatan"
+      }
+    ],
+    "mapel": "IPA",
+    "ringkasan": "Gaya adalah dorongan atau tarikan yang mengubah gerak benda. Isaac Newton merumuskan tiga hukum gerak: benda mempertahankan keadaannya (kelembaman), gaya sama dengan massa kali percepatan, dan setiap aksi menimbulkan reaksi yang sama besar berlawanan arah."
+  },
+  {
+    "contohSoal": {
+      "jawab": "Tesis: kebiasaan membaca 15 menit setiap hari meningkatkan kosakata siswa. Argumen: penelitian menunjukkan siswa yang rajin membaca memperoleh nilai bahasa lebih tinggi. Penegasan ulang: membaca setiap hari adalah kebiasaan kecil dengan manfaat besar.",
+      "soal": "Susun kerangka teks eksposisi singkat dengan topik \"Membaca 15 menit setiap hari\"."
+    },
+    "id": "materi-bahasa-indonesia",
+    "judul": "Teks Eksposisi",
+    "langkah": [
+      {
+        "contoh": "\"Membaca buku setiap hari membuat otak lebih tajam.\" Kalimat ini adalah pendapat penulis yang akan dibuktikan dengan argumen.",
+        "isi": "Teks eksposisi adalah teks yang memaparkan gagasan atau pendapat penulis tentang suatu topik, dengan tujuan menjelaskan dan meyakinkan pembaca.",
+        "judul": "Apa itu teks eksposisi?"
+      },
+      {
+        "contoh": "Tesis: \"Belajar kelompok lebih efektif daripada belajar sendiri.\" Argumen: siswa bisa saling menjelaskan materi yang sulit. Penegasan ulang: belajar kelompok layak dicoba secara rutin.",
+        "isi": "Struktur teks eksposisi terdiri atas tesis (pendapat awal), rangkaian argumen (alasan dan bukti), dan penegasan ulang (simpulan yang memperkuat tesis).",
+        "judul": "Struktur: tesis, argumen, penegasan ulang"
+      },
+      {
+        "contoh": "\"Menurut data perpustakaan sekolah, jumlah peminjam buku naik 20% setelah program literasi berjalan.\"",
+        "isi": "Argumen yang kuat didukung fakta, data, atau contoh nyata. Tanpa bukti, argumen hanya menjadi opini kosong.",
+        "judul": "Argumen harus pakai bukti"
+      },
+      {
+        "contoh": "Kata penghubung: \"pertama\", \"selain itu\", \"oleh karena itu\", \"dengan demikian\".",
+        "isi": "Gunakan kata penghubung antarparagraf agar argumen mengalir logis, serta kata kerja mental seperti \"meyakini\" dan \"berpendapat\" untuk menyatakan gagasan.",
+        "judul": "Bahasa teks eksposisi"
+      },
+      {
+        "contoh": "Topik: \"Sampah plastik di sekolah\". Tesis: sampah plastik harus dikurangi. Argumen: plastik sulit terurai dan mencemari tanah. Penegasan ulang: sekolah perlu menyediakan tempat sampah terpilah.",
+        "isi": "Pilih topik yang kamu kuasai, tulis tesis satu kalimat, kumpulkan 2–3 argumen beserta buktinya, lalu tutup dengan penegasan ulang.",
+        "judul": "Cara menulis teks eksposisi"
+      }
+    ],
+    "mapel": "Bahasa Indonesia",
+    "ringkasan": "Teks eksposisi memaparkan gagasan penulis untuk menjelaskan dan meyakinkan pembaca. Strukturnya terdiri atas tesis, rangkaian argumen yang didukung fakta, dan penegasan ulang. Kunci teks eksposisi yang baik adalah argumen logis dan bukti yang dapat diperiksa."
+  },
+  {
+    "contohSoal": {
+      "jawab": "Faktor pendorong: siswa baru ingin diterima dan mencari teman. Faktor penghambat: perbedaan bahasa dan prasangka antar kelompok. Solusi: kegiatan pengenalan sekolah yang melibatkan semua siswa dalam kelompok campuran.",
+      "soal": "Seorang siswa pindahan kesulitan bergaul di sekolah baru. Sebutkan satu faktor pendorong, satu faktor penghambat, dan satu solusi interaksi sosial dalam kasus ini."
+    },
+    "id": "materi-ips",
+    "judul": "Interaksi Sosial",
+    "langkah": [
+      {
+        "contoh": "Menyapa teman, berdiskusi kelompok, dan berjabat tangan saat berkenalan.",
+        "isi": "Interaksi sosial adalah hubungan timbal balik antarindividu atau kelompok yang memengaruhi perilaku satu sama lain, dan menjadi dasar terbentuknya masyarakat.",
+        "judul": "Apa itu interaksi sosial?"
+      },
+      {
+        "contoh": "Kontak sosial: dua siswa saling menyapa di koran sekolah. Komunikasi: mereka bertukar pesan dan memahami maksud satu sama lain.",
+        "isi": "Interaksi sosial mensyaratkan dua hal: adanya kontak sosial (hubungan langsung maupun tidak langsung) dan komunikasi (penyampaian pesan yang dipahami kedua pihak).",
+        "judul": "Syarat: kontak dan komunikasi"
+      },
+      {
+        "contoh": "Kerja sama: siswa mengerjakan proyek kelompok bersama. Persaingan: dua tim berlomba memenangkan lomba cerdas cermat secara sehat.",
+        "isi": "Bentuk interaksi sosial meliputi kerja sama, persaingan, konflik, dan akomodasi (upaya menyelesaikan konflik, misalnya melalui mediasi).",
+        "judul": "Bentuk-bentuk interaksi sosial"
+      },
+      {
+        "contoh": "Faktor pendorong: simpati dan empati. Faktor penghambat: prasangka dan perbedaan kepentingan.",
+        "isi": "Interaksi sosial dipengaruhi faktor pendorong seperti simpati, empati, dan sugesti, serta faktor penghambat seperti prasangka, stereotip, dan perbedaan kepentingan.",
+        "judul": "Faktor pendorong dan penghambat"
+      },
+      {
+        "contoh": "Gotong royong membersihkan lingkungan sekolah adalah contoh interaksi sosial yang memperkuat solidaritas warga sekolah.",
+        "isi": "Interaksi sosial yang positif membangun norma, nilai, dan solidaritas dalam masyarakat. Pelajari pola interaksi di sekitarmu untuk memahami bagaimana masyarakat bekerja.",
+        "judul": "Interaksi sosial dalam kehidupan sehari-hari"
+      }
+    ],
+    "mapel": "IPS",
+    "ringkasan": "Interaksi sosial adalah hubungan timbal balik antara individu atau kelompok yang menjadi dasar kehidupan bermasyarakat. Syaratnya adalah kontak sosial dan komunikasi. Bentuknya meliputi kerja sama, persaingan, konflik, dan akomodasi, yang dipengaruhi faktor pendorong dan penghambat."
+  }
+]

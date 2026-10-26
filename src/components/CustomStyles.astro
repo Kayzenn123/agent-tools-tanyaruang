@@ -1,0 +1,73 @@
+---
+// Font families are provided by Astro's native Fonts API (see `fonts` in
+// astro.config.ts and <Font /> in Layout.astro), exposed as `--font-display`
+// (Teachers), `--font-body` (Biryani) and `--font-accent` (Source Code Pro).
+// To switch typefaces, change the `fonts` entry and repoint `--aw-font-*` below.
+//
+// TanyaRuang tokens (BRIEF.md): palet hijau analogous hue 136, light.
+// --bg / --surface / --text / --muted / --accent / --accent2 / --pop.
+// Tanpa shadow, tanpa gradient — kedalaman dari border tebal 2px,
+// rotasi stiker, dan pola lubang karcis.
+---
+
+<style is:inline>
+  :root {
+    --bg: oklch(0.95 0.045 136);
+    --surface: oklch(0.9 0.04 136);
+    --text: oklch(0.2 0.04 136);
+    --muted: oklch(0.38 0.03 136);
+    --accent: oklch(0.61 0.19 166);
+    --accent2: oklch(0.64 0.169 106);
+    --pop: oklch(0.87 0.233 333);
+
+    --aw-font-sans: var(--font-body);
+    --aw-font-serif: var(--font-body);
+    --aw-font-heading: var(--font-display);
+    --aw-font-accent: var(--font-accent);
+
+    --aw-color-primary: var(--accent);
+    --aw-color-secondary: var(--accent2);
+    --aw-color-accent: var(--pop);
+
+    --aw-color-text-heading: var(--text);
+    --aw-color-text-default: var(--text);
+    --aw-color-text-muted: var(--muted);
+    --aw-color-bg-page: var(--bg);
+
+    --aw-color-bg-page-dark: var(--bg);
+
+    ::selection {
+      background-color: var(--accent2);
+      color: var(--text);
+    }
+  }
+
+  .dark {
+    --bg: oklch(0.95 0.045 136);
+    --surface: oklch(0.9 0.04 136);
+    --text: oklch(0.2 0.04 136);
+    --muted: oklch(0.38 0.03 136);
+    --accent: oklch(0.61 0.19 166);
+    --accent2: oklch(0.64 0.169 106);
+    --pop: oklch(0.87 0.233 333);
+
+    --aw-font-sans: var(--font-body);
+    --aw-font-serif: var(--font-body);
+    --aw-font-heading: var(--font-display);
+    --aw-font-accent: var(--font-accent);
+
+    --aw-color-primary: var(--accent);
+    --aw-color-secondary: var(--accent2);
+    --aw-color-accent: var(--pop);
+
+    --aw-color-text-heading: var(--text);
+    --aw-color-text-default: var(--text);
+    --aw-color-text-muted: var(--muted);
+    --aw-color-bg-page: var(--bg);
+
+    ::selection {
+      background-color: var(--accent2);
+      color: var(--text);
+    }
+  }
+</style>

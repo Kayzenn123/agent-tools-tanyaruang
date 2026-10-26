@@ -1,0 +1,336 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, METADATA, I18N } from 'astrowind:config';
+import favIconSvg from '~/assets/favicons/favicon.svg';
+
+import materi from '~/data/materi.json';
+import soal from '~/data/soal.json';
+
+const metadata = {
+  title: 'TanyaRuang — Ruang Belajar Pelajar Indonesia',
+  ignoreTitleTemplate: true,
+  description:
+    'TanyaRuang — ruang belajar pelajar Indonesia: pilih tiket materi, ikuti langkah guru, uji diri lewat kuis, dan berangkat belajar.',
+};
+
+// Jumlah soal per mapel dihitung dari data asli (soal.json), bukan angka karangan.
+const jumlahSoal = (mapel: string) => soal.filter((s) => s.mapel === mapel).length;
+
+const kodeTiket: Record<string, string> = {
+  Matematika: 'MTK',
+  IPA: 'IPA',
+  'Bahasa Indonesia': 'BIN',
+  IPS: 'IPS',
+};
+
+// Rotasi stiker per tiket (-3°..+3°), tetap di tempat yang sama tiap muat.
+const putar = [-2.5, 1.5, -1, 2.5];
+
+// Ikon SVG garis tebal digambar sendiri (pixel-art, tanpa emoji, tanpa paket).
+const svgAtribut =
+  'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"';
+const ikon = {
+  tiket: `<svg ${svgAtribut}><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/><path d="M13 6v2M13 11v2M13 16v2" stroke-dasharray="2 2"/></svg>`,
+  buku: `<svg ${svgAtribut}><path d="M12 6c-1.8-1.4-4-2-8-2v14c4 0 6.2.6 8 2 1.8-1.4 4-2 8-2V4c-4 0-6.2.6-8 2Z"/><path d="M12 6v14"/></svg>`,
+  tanya: `<svg ${svgAtribut}><path d="M9.2 9a2.8 2.8 0 1 1 3.6 2.7c-.8.25-1.3.8-1.3 1.8"/><circle cx="12" cy="17.6" r="0.6" fill="currentColor" stroke="none"/></svg>`,
+  jam: `<svg ${svgAtribut}><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>`,
+  bus: `<svg ${svgAtribut}><path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M4 12h16"/><circle cx="8" cy="18" r="1.8"/><circle cx="16" cy="18" r="1.8"/><path d="M7 8h2M15 8h2"/></svg>`,
+  ceklis: `<svg ${svgAtribut}><path d="M5 12.5 10 17.5 19 7"/></svg>`,
+  stempel: `<svg ${svgAtribut}><path d="M12 3v4"/><path d="M9 10h6l1 4H8l1-4Z"/><path d="M9 14v2M15 14v2"/><path d="M5 18h14v3H5z"/></svg>`,
+};
+
+// Isi marquee: ikon SVG + teks. Duplikat kedua (aria-hidden) dibuat di markup.
+const titik = '<span aria-hidden="true">•</span>';
+const isiJadwal = `${ikon.tiket}<span>MATEMATIKA</span>${titik}${ikon.buku}<span>IPA</span>${titik}${ikon.tanya}<span>BAHASA INDONESIA</span>${titik}${ikon.jam}<span>IPS</span>${titik}`;
+const isiSemangat = `${ikon.bus}<span>BERANGKAT BELAJAR</span>${titik}${ikon.tanya}<span>TANYA DULU</span>${titik}${ikon.ceklis}<span>PAHAM DULU</span>${titik}`;
+
+// Structured data: hanya dari config.yaml, jadi benar untuk situs ini.
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE?.name,
+    url: SITE?.site,
+    logo: new URL(favIconSvg.src, SITE?.site).toString(),
+    ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}),
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+
+  <a class="lewati" href="#konten">Lompat ke konten</a>
+  <div id="spotlight" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigasi loket (bukan navbar template): 3 anchor + toggle gerak. -->
+  <header class="sticky top-0 z-40 border-b-2" style="background-color: var(--bg); border-color: var(--text);">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:px-6">
+      <a href="#papan" class="font-heading text-xl font-bold tracking-tight" style="color: var(--text);">
+        TANYARUANG
+      </a>
+      <span class="font-accent text-xs font-bold tracking-widest" style="color: var(--muted);">PAPAN KEBERANGKATAN</span
+      >
+      <nav class="ml-auto flex flex-wrap items-center gap-x-4 gap-y-2" aria-label="Loket">
+        <a href="#loket-guru" class="font-heading font-bold" style="color: var(--text);">Loket Guru</a>
+        <a href="#loket-kuis" class="font-heading font-bold" style="color: var(--text);">Loket Kuis</a>
+        <a href="#loket-ringkasan" class="font-heading font-bold" style="color: var(--text);">Loket Ringkasan</a>
+        <button id="gerak-toggle" type="button" class="tombol-loket sekunder" aria-pressed="true">
+          Gerak: nyala
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="konten" class="flex-1">
+    <!-- ============ PAPAN ============ -->
+    <section id="papan" class="loket" aria-label="Papan keberangkatan belajar">
+      <div class="tirai">
+        <div class="marquee marquee-band-1" aria-label="Jadwal keberangkatan belajar">
+          <div class="marquee-track">
+            <span class="marquee-isi" set:html={isiJadwal} />
+            <span class="marquee-isi" aria-hidden="true" set:html={isiJadwal} />
+          </div>
+        </div>
+
+        <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <p class="font-accent text-xs font-bold tracking-widest" style="color: var(--muted);">
+              TERMINAL BELAJAR — PAPAN 01
+            </p>
+            <button id="marquee-jeda" type="button" class="tombol-loket sekunder" aria-pressed="false">
+              Jeda marquee
+            </button>
+          </div>
+
+          <h1 id="judul-utama" class="judul-raksasa mt-4">TANYARUANG</h1>
+          <p class="font-heading mt-4 max-w-2xl text-2xl font-bold leading-snug sm:text-3xl">
+            Papan keberangkatan belajar — pilih tiketmu, berangkat sekarang.
+          </p>
+          <p class="mt-3 max-w-2xl text-lg leading-relaxed">
+            Pak Loket: “Mau ke mana hari ini?” Pilih satu tiket materi di bawah, ikuti langkah gurunya, lalu uji dirimu
+            di Loket Kuis. Tidak perlu antre panjang — busnya berangkat begitu kamu siap.
+          </p>
+
+          <!-- 4 tiket materi: satu per mapel dari materi.json. -->
+          <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {
+              materi.map((m, i) => (
+                <a class="tiket" href="#loket-guru" data-materi={m.id} style={`--putar: ${putar[i]}deg`}>
+                  <span class="tiket-atas">
+                    <span class="tiket-label">TOPIK</span>
+                    <span class="tiket-judul">{m.judul}</span>
+                    <span class="tiket-mapel">{m.mapel}</span>
+                  </span>
+                  <span class="tiket-perforasi" aria-hidden="true">
+                    <span class="tiket-notch kiri" />
+                    <span class="tiket-notch kanan" />
+                  </span>
+                  <span class="tiket-bawah">
+                    <span>
+                      <span class="tiket-label">LANGKAH</span>
+                      <span class="tiket-nilai">{m.langkah.length} langkah</span>
+                    </span>
+                    <span>
+                      <span class="tiket-label">SOAL</span>
+                      <span class="tiket-nilai">{jumlahSoal(m.mapel)} soal</span>
+                    </span>
+                    <span class="tiket-kode">TR-{kodeTiket[m.mapel] ?? 'XXX'}</span>
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+          <p class="mt-6 font-accent text-sm font-bold" style="color: var(--muted);">
+            Klik tiket → Loket Guru terbuka di materi itu.
+          </p>
+        </div>
+
+        <div class="marquee marquee-band-2" aria-label="Penyemangat belajar">
+          <div class="marquee-track">
+            <span class="marquee-isi" set:html={isiSemangat} />
+            <span class="marquee-isi" aria-hidden="true" set:html={isiSemangat} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOKET GURU ============ -->
+    <section id="loket-guru" class="loket border-t-2" style="border-color: var(--text);" aria-label="Loket guru">
+      <div class="tirai mx-auto max-w-7xl px-4 py-12 sm:px-6">
+        <h2 class="font-heading text-3xl font-bold sm:text-4xl">Loket Guru</h2>
+        <p class="mt-3 max-w-2xl text-lg leading-relaxed">
+          Tiap materi diantar langkah demi langkah. Buka satu langkah, baca isinya, lihat contohnya, lalu lanjut. Contoh
+          soal di ujung tiap materi bisa dibuka jawabannya kalau sudah mencoba sendiri.
+        </p>
+
+        <div id="guru-app" class="mt-8">
+          <div class="flex flex-wrap gap-3" role="tablist" aria-label="Pilih materi">
+            {
+              materi.map((m, i) => (
+                <label class="guru-label" for={`tab-${m.id}`} style={`--putar: ${putar[i]}deg`}>
+                  {m.mapel}
+                </label>
+              ))
+            }
+          </div>
+
+          {
+            materi.map((m, i) => (
+              <Fragment>
+                <input type="radio" name="guru" id={`tab-${m.id}`} class="guru-tab" checked={i === 0} />
+                <div class="guru-panel mt-6" data-materi={m.id} role="tabpanel" aria-label={`Materi ${m.mapel}`}>
+                  <h3 class="font-heading text-2xl font-bold">
+                    {m.judul}{' '}
+                    <span class="font-accent text-sm font-bold" style="color: var(--muted);">
+                      — {m.mapel}
+                    </span>
+                  </h3>
+
+                  <div class="mt-5">
+                    {m.langkah.map((l, j) => (
+                      <details class="langkah" open={j === 0}>
+                        <summary>
+                          <span class="font-accent font-bold">{j + 1}.</span> {l.judul}
+                        </summary>
+                        <div class="langkah-isi">
+                          <p class="leading-relaxed">{l.isi}</p>
+                          <p class="langkah-contoh leading-relaxed">
+                            <strong>Contoh:</strong> {l.contoh}
+                          </p>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+
+                  <div class="mt-6 border-2 p-4" style="border-color: var(--text); background-color: var(--bg);">
+                    <h4 class="font-heading text-xl font-bold">Contoh soal</h4>
+                    <p class="mt-2 leading-relaxed">{m.contohSoal.soal}</p>
+                    <details class="langkah mt-4">
+                      <summary>Lihat jawaban</summary>
+                      <div class="langkah-isi">
+                        <p class="leading-relaxed">{m.contohSoal.jawab}</p>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </Fragment>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOKET KUIS ============ -->
+    <!-- Diisi agen UI-2 lewat src/scripts/kuis.js ke dalam #kuis-app. -->
+    <section id="loket-kuis" class="loket border-t-2" style="border-color: var(--text);" aria-label="Loket kuis">
+      <div class="tirai mx-auto max-w-7xl px-4 py-12 sm:px-6">
+        <h2 class="font-heading text-3xl font-bold sm:text-4xl">Loket Kuis</h2>
+        <p class="mt-3 max-w-2xl text-lg leading-relaxed">
+          Tiga soal pemanasan menentukan level awalmu. Jawaban salah menurunkan satu tingkat, dua benar beruntun
+          menaikkan satu tingkat. Mentok? Minta petunjuk — petunjuknya langkah guru, bukan bocoran jawaban.
+        </p>
+        <div id="kuis-app" class="mt-8"></div>
+      </div>
+    </section>
+
+    <!-- ============ LOKET RINGKASAN ============ -->
+    <section
+      id="loket-ringkasan"
+      class="loket border-t-2"
+      style="border-color: var(--text);"
+      aria-label="Loket ringkasan"
+    >
+      <div class="tirai mx-auto max-w-7xl px-4 py-12 sm:px-6">
+        <h2 class="font-heading text-3xl font-bold sm:text-4xl">Loket Ringkasan</h2>
+        <p class="mt-3 max-w-2xl text-lg leading-relaxed">
+          Empat kartu ringkas untuk dibaca ulang sebelum bus berangkat. Salin yang kamu butuhkan, tempel di catatanmu
+          sendiri.
+        </p>
+
+        <div class="mt-8 grid gap-5 sm:grid-cols-2">
+          {
+            materi.map((m, i) => (
+              <article class="kartu-ringkasan p-5" data-materi={m.id} style={`--putar: ${putar[i]}deg`}>
+                <p class="tiket-label">RINGKASAN — {m.mapel.toUpperCase()}</p>
+                <h3 class="font-heading mt-2 text-2xl font-bold">{m.judul}</h3>
+                <p class="ringkasan-teks mt-3 leading-relaxed">{m.ringkasan}</p>
+                <button type="button" class="tombol-loket sekunder mt-5" data-salin={m.id}>
+                  Salin ringkasan
+                </button>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PENUTUP ============ -->
+    <section id="penutup" class="loket border-t-2" style="border-color: var(--text);" aria-label="Penutup">
+      <div class="tirai mx-auto max-w-7xl px-4 py-14 text-center sm:px-6">
+        <h2 class="font-heading text-3xl font-bold sm:text-4xl">Penutup</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-lg leading-relaxed">
+          Selesaikan kuis dan stempel ini menghantam papan: perjalanan belajarmu hari ini sah.
+        </p>
+
+        <p class="font-heading mt-8 text-2xl font-bold">
+          Skor akhir: <strong id="skor-akhir">—</strong>
+        </p>
+
+        <div class="mt-8 overflow-hidden">
+          <!-- Muncul saat kuis selesai: kuis.js menambah class "tercap". -->
+          <span id="stempel-akhir" class="stempel text-3xl sm:text-5xl" role="status" aria-hidden="true">
+            SAH BERANGKAT
+          </span>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <button id="bagikan" type="button" class="tombol-loket">Bagikan hasil belajarmu</button>
+          <a href="#papan" class="tombol-loket sekunder">Kembali ke papan</a>
+        </div>
+
+        <footer class="mt-14 border-t-2 pt-8" style="border-color: var(--text);">
+          <p class="leading-relaxed">Pak Loket: “Tiketmu sudah dicetak, jangan sampai ketinggalan bus.”</p>
+          <div class="mt-6">
+            <button id="stempel-rahasia" type="button" class="stempel" title="Stempel TanyaRuang"> TANYARUANG </button>
+          </div>
+          <!-- Easter egg: diklik 3x stempel di atas, stiker bus muncul (kuis.js).
+               Disembunyikan via style display:none (bukan atribut hidden),
+               karena kuis.js memunculkannya dengan style.display = ''. -->
+          <div
+            id="stiker-bus"
+            class="mx-auto mt-6 max-w-xs border-2 p-4"
+            style="display: none; border-color: var(--text); background-color: var(--accent2);"
+          >
+            <span set:html={ikon.bus} />
+            <p class="font-heading mt-2 text-xl font-bold">Bus berangkat!</p>
+            <p class="mt-1 leading-relaxed">Kamu menemukan stiker rahasia Pak Loket. Selamat belajar!</p>
+          </div>
+          <p class="font-accent mt-8 text-xs font-bold tracking-widest" style="color: var(--muted);">
+            TANYARUANG — RUANG BELAJAR PELAJAR INDONESIA
+          </p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import '../scripts/gerak.js';
+  </script>
+  <script>
+    import '../scripts/kuis.js';
+  </script>
+</Layout>

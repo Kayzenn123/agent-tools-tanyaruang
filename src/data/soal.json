@@ -1,0 +1,337 @@
+[
+  {
+    "id": "mat-01",
+    "jawaban": 2,
+    "level": "mudah",
+    "mapel": "Matematika",
+    "pembahasan": "7 × 8 = 56, karena 7 dijumlahkan 8 kali sama dengan 56.",
+    "pertanyaan": "Berapakah hasil dari 7 × 8?",
+    "pilihan": ["48", "54", "56", "64"],
+    "topik": "Perkalian"
+  },
+  {
+    "id": "mat-02",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "Matematika",
+    "pembahasan": "Penyebutnya sudah sama, jadi jumlahkan pembilangnya: 3 + 1 = 4, sehingga 4/4 = 1.",
+    "pertanyaan": "Berapakah hasil dari 3/4 + 1/4?",
+    "pilihan": ["1/2", "1", "1 1/4", "2"],
+    "topik": "Pecahan"
+  },
+  {
+    "id": "mat-03",
+    "jawaban": 2,
+    "level": "mudah",
+    "mapel": "Matematika",
+    "pembahasan": "15% dari 200 = 15/100 × 200 = 30.",
+    "pertanyaan": "Berapakah 15% dari 200?",
+    "pilihan": ["15", "20", "30", "45"],
+    "topik": "Persen"
+  },
+  {
+    "id": "mat-04",
+    "jawaban": 2,
+    "level": "sedang",
+    "mapel": "Matematika",
+    "pembahasan": "2/3 × 90 = 180/3 = 60.",
+    "pertanyaan": "Berapakah 2/3 dari 90?",
+    "pilihan": ["30", "45", "60", "75"],
+    "topik": "Pecahan"
+  },
+  {
+    "id": "mat-05",
+    "jawaban": 2,
+    "level": "sedang",
+    "mapel": "Matematika",
+    "pembahasan": "x = 15 − 7 = 8.",
+    "pertanyaan": "Jika x + 7 = 15, berapakah nilai x?",
+    "pilihan": ["6", "7", "8", "9"],
+    "topik": "Aljabar"
+  },
+  {
+    "id": "mat-06",
+    "jawaban": 2,
+    "level": "sedang",
+    "mapel": "Matematika",
+    "pembahasan": "Luas persegi panjang = panjang × lebar = 12 × 5 = 60 cm².",
+    "pertanyaan": "Sebuah persegi panjang berukuran panjang 12 cm dan lebar 5 cm. Berapakah luasnya?",
+    "pilihan": ["17 cm²", "34 cm²", "60 cm²", "120 cm²"],
+    "topik": "Bangun Datar"
+  },
+  {
+    "id": "mat-07",
+    "jawaban": 2,
+    "level": "sulit",
+    "mapel": "Matematika",
+    "pembahasan": "√144 = 12 dan 3² = 9, jadi 12 + 9 = 21.",
+    "pertanyaan": "Berapakah hasil dari √144 + 3²?",
+    "pilihan": ["15", "18", "21", "24"],
+    "topik": "Akar dan Pangkat"
+  },
+  {
+    "id": "mat-08",
+    "jawaban": 1,
+    "level": "sulit",
+    "mapel": "Matematika",
+    "pembahasan": "Diskon 25% dari Rp80.000 adalah Rp20.000, jadi harga bayar = Rp80.000 − Rp20.000 = Rp60.000.",
+    "pertanyaan": "Sebuah tas seharga Rp80.000 dijual dengan diskon 25%. Berapa harga yang harus dibayar pembeli?",
+    "pilihan": ["Rp55.000", "Rp60.000", "Rp65.000", "Rp70.000"],
+    "topik": "Diskon"
+  },
+  {
+    "id": "ipa-01",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "IPA",
+    "pembahasan": "Satuan gaya dalam SI adalah Newton (N), diambil dari nama Isaac Newton.",
+    "pertanyaan": "Apa satuan SI untuk gaya?",
+    "pilihan": ["Joule", "Newton", "Watt", "Pascal"],
+    "topik": "Gaya"
+  },
+  {
+    "id": "ipa-02",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "IPA",
+    "pembahasan": "Dalam fotosintesis, tumbuhan menyerap karbon dioksida dan menghasilkan oksigen sebagai produk samping.",
+    "pertanyaan": "Gas apakah yang dihasilkan tumbuhan selama proses fotosintesis?",
+    "pilihan": ["Karbon dioksida", "Oksigen", "Nitrogen", "Hidrogen"],
+    "topik": "Fotosintesis"
+  },
+  {
+    "id": "ipa-03",
+    "jawaban": 2,
+    "level": "mudah",
+    "mapel": "IPA",
+    "pembahasan": "Jantung memompa darah melalui pembuluh darah ke seluruh tubuh.",
+    "pertanyaan": "Organ tubuh manusia manakah yang berfungsi memompa darah ke seluruh tubuh?",
+    "pilihan": ["Hati", "Paru-paru", "Jantung", "Ginjal"],
+    "topik": "Sistem Organ Tubuh"
+  },
+  {
+    "id": "ipa-04",
+    "jawaban": 0,
+    "level": "sedang",
+    "mapel": "IPA",
+    "pembahasan": "Itu adalah Hukum I Newton, yang dikenal sebagai hukum kelembaman (inersia).",
+    "pertanyaan": "Benda yang diam akan tetap diam dan benda yang bergerak akan tetap bergerak lurus beraturan jika tidak ada gaya luar yang bekerja. Pernyataan ini adalah bunyi...",
+    "pilihan": ["Hukum I Newton", "Hukum II Newton", "Hukum III Newton", "Hukum Archimedes"],
+    "topik": "Hukum Newton"
+  },
+  {
+    "id": "ipa-05",
+    "jawaban": 1,
+    "level": "sedang",
+    "mapel": "IPA",
+    "pembahasan": "Energi kinetik = ½ × m × v² = ½ × 2 × 3² = 9 joule.",
+    "pertanyaan": "Sebuah benda bermassa 2 kg bergerak dengan kecepatan 3 m/s. Berapakah energi kinetiknya?",
+    "pilihan": ["6 joule", "9 joule", "12 joule", "18 joule"],
+    "topik": "Energi"
+  },
+  {
+    "id": "ipa-06",
+    "jawaban": 2,
+    "level": "sedang",
+    "mapel": "IPA",
+    "pembahasan": "Titik didih air murni pada tekanan 1 atm adalah 100°C.",
+    "pertanyaan": "Pada tekanan 1 atmosfer, air murni mendidih pada suhu...",
+    "pilihan": ["80°C", "90°C", "100°C", "120°C"],
+    "topik": "Kalor"
+  },
+  {
+    "id": "ipa-07",
+    "jawaban": 1,
+    "level": "sulit",
+    "mapel": "IPA",
+    "pembahasan": "Menurut Hukum II Newton, a = F/m = 20/4 = 5 m/s².",
+    "pertanyaan": "Sebuah benda bermassa 4 kg didorong dengan gaya 20 N. Berapakah percepatan benda tersebut?",
+    "pilihan": ["4 m/s²", "5 m/s²", "8 m/s²", "20 m/s²"],
+    "topik": "Hukum Newton"
+  },
+  {
+    "id": "ipa-08",
+    "jawaban": 2,
+    "level": "sulit",
+    "mapel": "IPA",
+    "pembahasan": "Hukum III Newton menyatakan setiap aksi menimbulkan reaksi yang sama besar dan berlawanan arah.",
+    "pertanyaan": "Saat mendayung perahu, dayung mendorong air ke belakang dan air mendorong perahu ke depan. Peristiwa ini mencontohkan...",
+    "pilihan": ["Hukum I Newton", "Hukum II Newton", "Hukum III Newton", "Hukum Hooke"],
+    "topik": "Hukum Newton"
+  },
+  {
+    "id": "ind-01",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Sinonim adalah kata yang memiliki makna sama atau mirip; sinonim \"bahagia\" adalah \"gembira\".",
+    "pertanyaan": "Apa sinonim dari kata \"bahagia\"?",
+    "pilihan": ["Sedih", "Gembira", "Marah", "Takut"],
+    "topik": "Sinonim"
+  },
+  {
+    "id": "ind-02",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Kalimat tanya digunakan untuk menanyakan sesuatu dan diakhiri tanda tanya.",
+    "pertanyaan": "Kalimat yang diakhiri tanda tanya (?) disebut kalimat...",
+    "pilihan": ["Berita", "Tanya", "Perintah", "Seru"],
+    "topik": "Jenis Kalimat"
+  },
+  {
+    "id": "ind-03",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Antonim adalah lawan kata; lawan dari \"rajin\" adalah \"malas\".",
+    "pertanyaan": "Apa antonim dari kata \"rajin\"?",
+    "pilihan": ["Pintar", "Malas", "Tekun", "Giat"],
+    "topik": "Antonim"
+  },
+  {
+    "id": "ind-04",
+    "jawaban": 2,
+    "level": "sedang",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Menurut KBBI, bentuk bakunya adalah \"apotek\", tempat menjual obat.",
+    "pertanyaan": "Manakah penulisan kata baku yang benar?",
+    "pilihan": ["Apotik", "Apoteik", "Apotek", "Apotik"],
+    "topik": "Kata Baku"
+  },
+  {
+    "id": "ind-05",
+    "jawaban": 1,
+    "level": "sedang",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Awalan me- bertemu huruf s luluh menjadi ny-, sehingga \"sapu\" menjadi \"menyapu\".",
+    "pertanyaan": "Kata \"sapu\" mendapat awalan me-. Bentuk yang benar adalah...",
+    "pilihan": ["Mensapu", "Menyapu", "Mesapu", "Menysapu"],
+    "topik": "Imbuhan"
+  },
+  {
+    "id": "ind-06",
+    "jawaban": 1,
+    "level": "sedang",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Teks eksposisi memaparkan gagasan dan meyakinkan pembaca dengan argumen serta fakta yang dapat dipertanggungjawabkan.",
+    "pertanyaan": "Apa tujuan utama teks eksposisi?",
+    "pilihan": [
+      "Menghibur pembaca",
+      "Menjelaskan dan meyakinkan pembaca dengan argumen dan fakta",
+      "Menceritakan sebuah kisah",
+      "Mendeskripsikan suatu tempat"
+    ],
+    "topik": "Teks Eksposisi"
+  },
+  {
+    "id": "ind-07",
+    "jawaban": 1,
+    "level": "sulit",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Simile membandingkan dua hal dengan kata pembanding seperti \"se-\" atau \"bagai\"; di sini hati dibandingkan dengan batu.",
+    "pertanyaan": "Kalimat \"Hatinya sekeras batu\" menggunakan majas...",
+    "pilihan": ["Metafora", "Simile", "Personifikasi", "Hiperbola"],
+    "topik": "Majas"
+  },
+  {
+    "id": "ind-08",
+    "jawaban": 1,
+    "level": "sulit",
+    "mapel": "Bahasa Indonesia",
+    "pembahasan": "Pilihan lain tidak baku: \"para siswa-siswa\" mubazir, \"karena... maka\" tidak boleh dipakai bersamaan, dan \"oleh saya\" pada kalimat pasif kurang efektif.",
+    "pertanyaan": "Manakah kalimat berikut yang baku dan efektif?",
+    "pilihan": [
+      "Para siswa-siswa pergi ke sekolah.",
+      "Dia mengucapkan terima kasih kepada ibu guru.",
+      "Karena hujan deras, maka pertandingan ditunda.",
+      "Buku itu dibaca oleh saya kemarin pagi hari."
+    ],
+    "topik": "Kalimat Efektif"
+  },
+  {
+    "id": "ips-01",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "IPS",
+    "pembahasan": "Jakarta adalah ibu kota negara Indonesia, tempat pusat pemerintahan berada.",
+    "pertanyaan": "Apa ibu kota negara Indonesia?",
+    "pilihan": ["Bandung", "Jakarta", "Surabaya", "Medan"],
+    "topik": "Geografi Indonesia"
+  },
+  {
+    "id": "ips-02",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "IPS",
+    "pembahasan": "Mata uang resmi Indonesia adalah Rupiah (Rp).",
+    "pertanyaan": "Apa mata uang resmi negara Indonesia?",
+    "pilihan": ["Ringgit", "Rupiah", "Baht", "Peso"],
+    "topik": "Ekonomi"
+  },
+  {
+    "id": "ips-03",
+    "jawaban": 1,
+    "level": "sedang",
+    "mapel": "IPS",
+    "pembahasan": "Sila pertama Pancasila adalah \"Ketuhanan Yang Maha Esa\".",
+    "pertanyaan": "Apa bunyi sila pertama Pancasila?",
+    "pilihan": [
+      "Kemanusiaan yang adil dan beradab",
+      "Ketuhanan Yang Maha Esa",
+      "Persatuan Indonesia",
+      "Keadilan sosial bagi seluruh rakyat Indonesia"
+    ],
+    "topik": "Pancasila"
+  },
+  {
+    "id": "ips-04",
+    "jawaban": 2,
+    "level": "sedang",
+    "mapel": "IPS",
+    "pembahasan": "ASEAN didirikan pada 8 Agustus 1967 di Bangkok, Thailand, melalui Deklarasi Bangkok.",
+    "pertanyaan": "ASEAN (Perhimpunan Bangsa-Bangsa Asia Tenggara) didirikan pada tahun...",
+    "pilihan": ["1945", "1955", "1967", "1975"],
+    "topik": "ASEAN"
+  },
+  {
+    "id": "eng-01",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "English",
+    "pembahasan": "Untuk subjek orang ketiga tunggal (she) pada simple present tense, kata kerja ditambah -es: \"goes\".",
+    "pertanyaan": "Choose the correct sentence: \"She ___ to school every day.\"",
+    "pilihan": ["go", "goes", "going", "gone"],
+    "topik": "Simple Present Tense"
+  },
+  {
+    "id": "eng-02",
+    "jawaban": 1,
+    "level": "mudah",
+    "mapel": "English",
+    "pembahasan": "\"Eat\" adalah kata kerja tidak beraturan; bentuk past tense-nya adalah \"ate\".",
+    "pertanyaan": "What is the past tense of the verb \"eat\"?",
+    "pilihan": ["eated", "ate", "eaten", "eating"],
+    "topik": "Past Tense"
+  },
+  {
+    "id": "eng-03",
+    "jawaban": 0,
+    "level": "sedang",
+    "mapel": "English",
+    "pembahasan": "Lawan kata \"expensive\" (mahal) adalah \"cheap\" (murah).",
+    "pertanyaan": "What is the opposite of the word \"expensive\"?",
+    "pilihan": ["cheap", "costly", "pricey", "dear"],
+    "topik": "Vocabulary"
+  },
+  {
+    "id": "eng-04",
+    "jawaban": 2,
+    "level": "sulit",
+    "mapel": "English",
+    "pembahasan": "Dalam conditional type 2 untuk pengandaian, kata kerja \"be\" memakai \"were\" untuk semua subjek, termasuk \"I\".",
+    "pertanyaan": "Choose the correct sentence: \"If I ___ rich, I would travel the world.\"",
+    "pilihan": ["am", "was", "were", "be"],
+    "topik": "Conditional Sentence"
+  }
+]

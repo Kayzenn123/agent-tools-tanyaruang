@@ -1,0 +1,603 @@
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+
+/* shadcn/ui-compatible tokens derived from the --aw-* variables. */
+@import './shadcn.css';
+
+@variant dark (&:where(.dark, .dark *));
+
+@custom-variant intersect (&:not([no-intersect]));
+
+@theme {
+  --color-primary: var(--aw-color-primary);
+  --color-secondary: var(--aw-color-secondary);
+  --color-accent: var(--aw-color-accent);
+  --color-heading: var(--aw-color-text-heading);
+  --color-default: var(--aw-color-text-default);
+  --color-muted: var(--aw-color-text-muted);
+  --color-link: var(--aw-color-link, var(--aw-color-primary));
+
+  --font-sans:
+    var(--aw-font-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: var(--aw-font-serif, ui-serif), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-heading: var(--aw-font-heading, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade: fadeInUp 0.5s both;
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@utility bg-page {
+  background-color: var(--aw-color-bg-page);
+}
+
+@utility bg-dark {
+  background-color: var(--aw-color-bg-page-dark);
+}
+
+@utility text-page {
+  color: var(--aw-color-text-default);
+}
+
+@utility text-muted {
+  color: var(--aw-color-text-muted);
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
+}
+
+@utility btn-primary {
+  @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+}
+
+@utility btn-secondary {
+  @apply btn;
+}
+
+@utility btn-tertiary {
+  @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+}
+
+/* Sticky header: solid page background on phones, translucent page background with blur on desktop. */
+#header.scroll > div:first-child {
+  @apply bg-page lg:backdrop-blur-md;
+  box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
+}
+@media (width >= 64rem) {
+  #header.scroll > div:first-child {
+    background-color: color-mix(in srgb, var(--aw-color-bg-page) 90%, transparent);
+  }
+}
+.dark #header.scroll > div:first-child,
+#header.scroll.dark > div:first-child {
+  @apply border-b border-gray-500/20;
+  box-shadow: none;
+}
+
+#header.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
+}
+
+.dropdown:focus .dropdown-menu,
+.dropdown:focus-within .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 2.4;
+}
+
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+/* Current page in the header navigation (set server-side in Header.astro and
+   kept in sync on client-side navigations). Override --aw-color-link in
+   CustomStyles.astro to change the colour. */
+#header nav .aw-link-active {
+  @apply text-link;
+}
+
+.dd *:first-child {
+  margin-top: 0;
+}
+
+/* Blog prose: inline code without the typography plugin's backticks, and
+   code blocks that follow the light/dark theme (Shiki dual themes). */
+.prose :where(code):not(:where(pre *)) {
+  background-color: color-mix(in oklab, var(--aw-color-text-default) 8%, transparent);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-weight: 500;
+}
+.prose :where(code):not(:where(pre *))::before,
+.prose :where(code):not(:where(pre *))::after {
+  content: none;
+}
+.prose :where(pre.astro-code) {
+  border: 1px solid color-mix(in oklab, var(--aw-color-text-default) 12%, transparent);
+}
+.dark .astro-code,
+.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+/* ============================================================
+   TANYARUANG — token & gaya papan pengumuman (BRIEF.md)
+   Tanpa shadow, tanpa gradient. Border tebal 2px solid.
+   ============================================================ */
+
+@theme {
+  --font-accent: var(--aw-font-accent, ui-monospace), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Larangan keras seed: tidak ada bayangan di mana pun. Fokus keyboard
+   diganti outline tebal supaya tetap terlihat tanpa box-shadow. */
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--pop);
+  outline-offset: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Skip-link: muncul hanya saat keyboard fokus. */
+.lewati {
+  position: absolute;
+  left: 1rem;
+  top: -6rem;
+  z-index: 100;
+  background-color: var(--accent2);
+  color: var(--text);
+  border: 2px solid var(--text);
+  font-family: var(--font-accent);
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  transition: top 0.15s ease;
+}
+.lewati:focus {
+  top: 1rem;
+}
+
+/* Grain feTurbulence di atas papan (overlay tetap, konten di bawah). */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+}
+
+/* Spotlight kursor: lingkaran solid blur, bukan gradient. */
+#spotlight {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 22rem;
+  height: 22rem;
+  margin: -11rem 0 0 -11rem;
+  border-radius: 9999px;
+  background-color: var(--accent2);
+  opacity: 0.16;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 1;
+}
+#spotlight.spotlight-aktif {
+  display: block;
+}
+
+/* ---------- Judul raksasa ---------- */
+.judul-raksasa {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.9rem, 13.5vw, 10.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+/* ---------- Marquee 2 band ---------- */
+.marquee {
+  overflow: hidden;
+  border-top: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+  white-space: nowrap;
+}
+.marquee-band-1 {
+  background-color: var(--accent);
+}
+.marquee-band-2 {
+  background-color: var(--accent2);
+}
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: marquee-jalan 26s linear infinite;
+  will-change: transform;
+}
+.marquee-band-2 .marquee-track {
+  animation-direction: reverse;
+}
+.marquee-isi {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 1rem 0.55rem 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+.marquee-isi svg {
+  flex: none;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+@keyframes marquee-jalan {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Tombol jeda marquee: matikan animasi, bukan sembunyikan konten. */
+.marquee-jeda .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Tiket karcis ---------- */
+.tiket {
+  position: relative;
+  display: block;
+  background-color: var(--surface);
+  border: 2px solid var(--text);
+  color: var(--text);
+  text-decoration: none;
+  transform: rotate(var(--putar, 0deg));
+  transition: transform 0.15s ease;
+}
+.tiket:hover,
+.tiket:focus-visible {
+  transform: rotate(0deg) translateY(-4px);
+}
+.tiket-atas {
+  display: block;
+  padding: 1rem 1.1rem 0.9rem;
+}
+.tiket-label {
+  display: block;
+  font-family: var(--font-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+.tiket-judul {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.05;
+  margin-top: 0.15rem;
+}
+.tiket-mapel {
+  display: block;
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.35rem;
+}
+.tiket-perforasi {
+  position: relative;
+  border-top: 2px dashed var(--text);
+  margin: 0 0.4rem;
+}
+.tiket-notch {
+  position: absolute;
+  top: -11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: var(--bg);
+  border: 2px solid var(--text);
+}
+.tiket-notch.kiri {
+  left: -14px;
+}
+.tiket-notch.kanan {
+  right: -14px;
+}
+.tiket-bawah {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem 1rem;
+}
+.tiket-nilai {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+}
+.tiket-kode {
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border: 2px solid var(--text);
+  padding: 0.2rem 0.45rem;
+  background-color: var(--accent2);
+}
+
+/* ---------- Loket guru: tab radio CSS-only ---------- */
+.guru-tab {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  opacity: 0;
+}
+.guru-panel {
+  display: none;
+}
+.guru-tab:checked + .guru-panel {
+  display: block;
+}
+.guru-label {
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid var(--text);
+  background-color: var(--surface);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  transform: rotate(var(--putar, 0deg));
+}
+.guru-label.guru-fokus {
+  outline: 3px solid var(--pop);
+  outline-offset: 2px;
+}
+.guru-label:hover {
+  background-color: var(--accent2);
+}
+#guru-app:has(#tab-materi-matematika:checked) label[for='tab-materi-matematika'],
+#guru-app:has(#tab-materi-ipa:checked) label[for='tab-materi-ipa'],
+#guru-app:has(#tab-materi-bahasa-indonesia:checked) label[for='tab-materi-bahasa-indonesia'],
+#guru-app:has(#tab-materi-ips:checked) label[for='tab-materi-ips'] {
+  background-color: var(--accent);
+}
+#guru-app:has(#tab-materi-matematika:focus-visible) label[for='tab-materi-matematika'],
+#guru-app:has(#tab-materi-ipa:focus-visible) label[for='tab-materi-ipa'],
+#guru-app:has(#tab-materi-bahasa-indonesia:focus-visible) label[for='tab-materi-bahasa-indonesia'],
+#guru-app:has(#tab-materi-ips:focus-visible) label[for='tab-materi-ips'] {
+  outline: 3px solid var(--pop);
+  outline-offset: 2px;
+}
+
+/* ---------- Langkah guru (details) ---------- */
+details.langkah {
+  border: 2px solid var(--text);
+  background-color: var(--surface);
+}
+details.langkah + details.langkah {
+  margin-top: 0.75rem;
+}
+details.langkah summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+details.langkah summary::-webkit-details-marker {
+  display: none;
+}
+details.langkah summary::after {
+  content: '+';
+  margin-left: auto;
+  font-family: var(--font-accent);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+details.langkah[open] summary::after {
+  content: '–';
+}
+.langkah-isi {
+  border-top: 2px dashed var(--text);
+  padding: 0.9rem 1rem 1rem;
+}
+.langkah-contoh {
+  margin-top: 0.75rem;
+  border: 2px solid var(--text);
+  background-color: var(--bg);
+  padding: 0.7rem 0.85rem;
+}
+
+/* ---------- Kartu ringkasan ---------- */
+.kartu-ringkasan {
+  border: 2px solid var(--text);
+  background-color: var(--surface);
+  transform: rotate(var(--putar, 0deg));
+}
+.kartu-ringkasan:nth-child(odd) {
+  background-color: var(--bg);
+}
+
+/* ---------- Stempel ---------- */
+.stempel {
+  display: inline-block;
+  border: 4px solid var(--pop);
+  color: var(--pop);
+  font-family: var(--font-accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1.2rem;
+  transform: rotate(-8deg);
+  background-color: var(--bg);
+}
+#stempel-akhir {
+  opacity: 0;
+  transform: rotate(-18deg) scale(1);
+  pointer-events: none;
+}
+#stempel-akhir.tercap {
+  opacity: 1;
+  pointer-events: auto;
+  animation: stempel-slam 0.35s ease-out forwards;
+}
+@keyframes stempel-slam {
+  0% {
+    transform: rotate(-18deg) scale(1.6);
+  }
+  60% {
+    transform: rotate(-7deg) scale(0.94);
+  }
+  100% {
+    transform: rotate(-8deg) scale(1);
+  }
+}
+#stempel-rahasia {
+  cursor: pointer;
+  border-width: 3px;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+
+/* ---------- Tirai antar-loket (curtain wipe) ---------- */
+/* Clip hanya di anak .tirai, bukan di section yang diobserve — lihat
+   AGENTS.md: clip-path di elemen yang diobserve bikin IO buta. */
+.gerak-aktif .tirai {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.7s ease;
+}
+.gerak-aktif .loket.terbuka .tirai {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- Header loket: target sentuh 44px ---------- */
+header a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 4px 10px;
+}
+#konten {
+  overflow-x: clip;
+}
+
+/* ---------- Hemat render: section bawah fold tidak dihitung saat load ---------- */
+.loket:not(#papan) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* ---------- Tombol loket ---------- */
+.tombol-loket {
+  display: inline-block;
+  min-height: 44px;
+  cursor: pointer;
+  border: 2px solid var(--text);
+  background-color: var(--accent);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 0.7rem 1.3rem;
+  text-decoration: none;
+}
+.tombol-loket:hover {
+  background-color: var(--accent2);
+}
+.tombol-loket.sekunder {
+  background-color: var(--surface);
+}
+
+/* ---------- Mode ringan / reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .gerak-aktif .tirai {
+    clip-path: none;
+    transition: none;
+  }
+  #stempel-akhir.tercap {
+    animation: none;
+    transform: rotate(-8deg) scale(1);
+  }
+}
+
+/* ---------- Penegasan token TanyaRuang (paling akhir) ----------
+   shadcn.css (di-@import di atas) menimpa --muted dan --accent di :root;
+   blok ini, yang terakhir di stylesheet, mengembalikan token BRIEF. */
+:root {
+  --bg: oklch(0.95 0.045 136);
+  --surface: oklch(0.9 0.04 136);
+  --text: oklch(0.2 0.04 136);
+  --muted: oklch(0.38 0.03 136);
+  --accent: oklch(0.61 0.19 166);
+  --accent2: oklch(0.64 0.169 106);
+  --pop: oklch(0.87 0.233 333);
+}
